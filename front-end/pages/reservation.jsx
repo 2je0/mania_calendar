@@ -6,6 +6,14 @@ import DatePanel from 'react-multi-date-picker/plugins/date_panel';
 import { Button, Stack } from '@mui/material';
 const reservation = () => {
   const [value, setValue] = useState(null);
+  const today = new Date();
+  const offset = (today.getDay() + 6) % 7;
+
+  const minDate = new Date(today);
+  minDate.setDate(today.getDate() - offset);
+  const maxDate = new Date(minDate);
+  maxDate.setDate(minDate.getDate() + 6);
+
   return (
     <Container>
       <Title title='예약하기' />
@@ -16,15 +24,12 @@ const reservation = () => {
           multiple
           sort
           plugins={[<DatePanel />]}
+          minDate={minDate}
+          maxDate={maxDate}
         />
       </div>
       <div className='flex w-full justify-end px-6'>
         <Button variant='outlined'>예약</Button>
-        <Stack spacing={2} direction='row'>
-          <Button variant='contained' disableElevation>
-            Disable elevation
-          </Button>
-        </Stack>
       </div>
     </Container>
   );
