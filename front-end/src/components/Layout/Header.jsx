@@ -17,7 +17,10 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
+import drawerList from 'constants/drawerList';
+import { useRouter } from 'next/router';
 const Header = () => {
+  const router = useRouter();
   const anchor = 'left';
   const [state, setState] = React.useState({
     top: false,
@@ -43,13 +46,16 @@ const Header = () => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}>
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
+        {drawerList.map((ele, index) => (
+          <ListItem key={ele.name} disablePadding>
+            <ListItemButton
+              onClick={() => {
+                router.push(ele.link);
+              }}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={ele.name} />
             </ListItemButton>
           </ListItem>
         ))}
