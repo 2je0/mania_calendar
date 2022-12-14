@@ -77,10 +77,22 @@ const Header = () => {
               onClick={toggleDrawer(anchor, true)}>
               <MenuIcon />
             </IconButton>
-            <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+            <Typography
+              variant='h6'
+              component='div'
+              sx={{ flexGrow: 1 }}
+              onClick={() => {
+                router.push('/');
+              }}>
               TEAM MANIA
             </Typography>
-            <Button color='inherit'>Login</Button>
+            <Button
+              color='inherit'
+              onClick={() => {
+                router.push('/login');
+              }}>
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
       </Box>
