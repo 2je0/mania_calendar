@@ -67,8 +67,9 @@ const Header = () => {
               edge='start'
               color='inherit'
               aria-label='menu'
-              sx={{ mr: 2 }}>
-              <MenuIcon onClick={toggleDrawer(anchor, true)} />
+              sx={{ mr: 2 }}
+              onClick={toggleDrawer(anchor, true)}>
+              <MenuIcon />
             </IconButton>
             <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
               TEAM MANIA
