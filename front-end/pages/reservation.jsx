@@ -29,7 +29,7 @@ const reservation = () => {
         />
       </div>
       <div className='flex w-full justify-end px-8'>
-        <button class='bg-blue-500 hover:bg-blue-700 text-white  py-1 px-4 rounded'>
+        <button className='bg-blue-500 hover:bg-blue-700 text-white  py-1 px-4 rounded'>
           예약
         </button>
       </div>
