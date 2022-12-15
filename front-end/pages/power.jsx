@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Title from '@components/common/Title';
 import StatTable from '@components/stat/StatTable';
 
-const stat = () => {
+const power = () => {
   return (
     <>
       <Title title='전투력 측정' />
@@ -22,4 +22,4 @@ const stat = () => {
   );
 };
 
-export default stat;
+export default power;
